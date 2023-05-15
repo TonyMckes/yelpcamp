@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@fontsource/archivo':
+    specifier: ^4.5.11
+    version: 4.5.11
   astro:
     specifier: ^2.4.1
     version: 2.4.1
@@ -534,6 +537,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/archivo@4.5.11:
+    resolution: {integrity: sha512-2bff98S2meggVKZ4cTCbckVhDid7Hgp32y7jHt2pJnJC3vEDOuPEERn2XZl5EAxcAwc/n63DI/m5m5B7hmdocg==}
+    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
