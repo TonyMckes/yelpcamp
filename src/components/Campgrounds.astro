@@ -1,0 +1,76 @@
+---
+import buloySprings from '../assets/camp-images/compressed-images/Buloy Springs.jpg'
+import calaguasIsland from '../assets/camp-images/compressed-images/Calaguas Island.jpg'
+import latikRiverside from '../assets/camp-images/compressed-images/Latik Riverside.jpg'
+import mountUlap from '../assets/camp-images/compressed-images/Mount Ulap.jpg'
+import onayBeach from '../assets/camp-images/compressed-images/Onay Beach.jpg'
+import sevenSisterswaterfall from '../assets/camp-images/compressed-images/Seven Sisters Waterfall.jpg'
+import Card from '../components/Card.astro'
+
+const pages = [
+  {
+    slug: 'mount-ulap',
+    title: 'Mount Ulap',
+    description:
+      'One of the most famous hikes in Benguet is Mt Ulap in Itogon.',
+    image: mountUlap
+  },
+  {
+    slug: 'calaguas-islands',
+    title: 'Calaguas Islands',
+    description:
+      'A paradise of islands that can rival the white sand beauty of Boracay.',
+    image: calaguasIsland
+  },
+  {
+    slug: 'onay-beach',
+    title: 'Onay Beach',
+    description:
+      'This is one of the best beach campinig sites, beautiful and pristine.',
+    image: onayBeach
+  },
+  {
+    slug: 'seven-sisters-waterfall',
+    title: 'Seven Sisters Waterfall',
+    description: 'The Seven Sisters is the 39th tallest waterfall in Norway.',
+    image: sevenSisterswaterfall
+  },
+  {
+    slug: 'latik-riverside',
+    title: 'Latik Riverside',
+    description:
+      'Philippines is one of he most dazzling countries in all of Asia.',
+    image: latikRiverside
+  },
+  {
+    slug: 'buloy-springs',
+    title: 'Buloy Springs',
+    description:
+      'This is one of the best beach camping sites, beautiful and pristine.',
+    image: buloySprings
+  }
+]
+---
+
+<ul>
+  {pages.map((camp) => <Card {...camp} />)}
+</ul>
+
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem !important;
+  }
+  @media (min-width: 768px) {
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    ul {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

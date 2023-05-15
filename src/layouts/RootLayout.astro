@@ -1,0 +1,70 @@
+---
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title + ' - Challenge'}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    color: #615e5b;
+    box-sizing: border-box;
+  }
+  html {
+    color-scheme: light dark;
+  }
+  body {
+    font-family: system-ui, sans-serif;
+    background-color: #f9f6f1;
+    margin: 0;
+  }
+  img,
+  svg,
+  video {
+    max-width: 100%;
+    display: block;
+  }
+  code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+  :is(h1, h2, h3, h4, h5, h6) {
+    color: #0b0906;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .navbar {
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .navbar {
+    }
+  }
+</style>

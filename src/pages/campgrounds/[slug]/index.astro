@@ -1,0 +1,154 @@
+---
+import commentIcon from '../../../assets/Chat Bubble.svg'
+import locationMap from '../../../assets/Map.png'
+import Link from '../../../components/Link.astro'
+import RootLayout from '../../../layouts/RootLayout.astro'
+import SiteLayout from '../../../layouts/SiteLayout.astro'
+import pages from '../../../assets/pages.json'
+
+export function getStaticPaths() {
+  return pages.map(({ description, slug, image, title }) => ({
+    params: { slug },
+    props: { title, description, image }
+  }))
+}
+
+const { slug } = Astro.params
+const { title, description, image } = Astro.props
+---
+
+<RootLayout title='Add a new campground'>
+  <SiteLayout location='Home'>
+    <main>
+      <div>
+        <section class='campground'>
+          <img src={image} alt={title} />
+          <div>
+            <h1>{title}</h1>
+            <!-- <span>{price}</span> -->
+          </div>
+          <p>{description}</p>
+          <p><i>Submitted by</i></p>
+        </section>
+        <section class='comments'>
+          <ul>
+            <li>
+              <div>
+                <h2>Adam Jones</h2>
+                <span>13h ago</span>
+              </div>
+              <p>
+                Honestly one of the best experiences ever, took us a while to
+                figure out how to het there but it was amazing!
+              </p>
+            </li>
+            <li>
+              <div>
+                <h2>Issac Dylan</h2>
+                <span>1 day ago</span>
+              </div>
+              <p>
+                Traveling changes you as a person, your gain more perspective,
+                this is the perfect spot to do that.
+              </p>
+            </li>
+            <li>
+              <div>
+                <h2>Hudson Luca</h2>
+                <span>3 days ago</span>
+              </div>
+              <p>
+                Definitely recommend going there, not too far and not a lot of
+                people to ruin the experience.
+              </p>
+            </li>
+          </ul>
+          <div class='cta'>
+            <Link href={`/campgrounds/${slug}/comment`}>
+              <img src={commentIcon} alt='Comment' /> Leave a Review
+            </Link>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <img src={locationMap} alt='Location map' />
+      </aside>
+    </main>
+  </SiteLayout>
+</RootLayout>
+
+<style>
+  main {
+    margin: 0 1rem;
+  }
+  section {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 0.25rem;
+  }
+  section p {
+    margin-bottom: 0;
+  }
+  img {
+    border-radius: 0.25rem;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  ul > li > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  ul > li h2 {
+    margin: 0;
+  }
+  ul > li p {
+    margin-bottom: 1.5rem;
+  }
+  ul > li {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #dbdbdb;
+  }
+
+  aside {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 0.25rem;
+  }
+  aside img {
+    border-radius: 0.25rem;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 1024px) {
+    main {
+      display: grid;
+      grid-template-columns: 33% 66%;
+      gap: 2rem;
+      margin-right: 2rem;
+    }
+    main div {
+      grid-column-start: 2;
+      grid-row: span 2 / span 2;
+    }
+    section {
+      padding: 3rem;
+    }
+    aside {
+      padding: 3rem;
+      grid-row-start: 1;
+    }
+    .cta {
+      display: flex;
+      justify-content: end;
+    }
+  }
+</style>

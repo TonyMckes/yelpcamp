@@ -1,0 +1,28 @@
+---
+import checkmarkIcon from '../assets/Checkmark.svg'
+
+interface Props {
+  highlights: string[]
+}
+
+const { highlights } = Astro.props
+---
+
+<ul>
+  {
+    highlights.map((text) => (
+      <li>
+        <img src={checkmarkIcon} alt='Checkmark' />
+        {text}
+      </li>
+    ))
+  }
+</ul>
+<style>
+  ul li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+</style>

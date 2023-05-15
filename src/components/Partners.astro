@@ -1,0 +1,36 @@
+---
+import airbnb from '../assets/Airbnb.svg'
+import booking from '../assets/Booking.svg'
+import plumGuide from '../assets/Plum Guide.svg'
+
+const partners = [
+  { logo: airbnb, label: 'Airbnb' },
+  { logo: booking, label: 'Booking' },
+  { logo: plumGuide, label: 'Plum Guide' }
+]
+---
+
+<div>
+  <p>Partnered with:</p>
+  <ul>
+    {
+      partners.map(({ logo, label }) => (
+        <li>
+          <img src={logo} alt={`${label} logo`} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  div {
+    margin-top: 1.5rem;
+  }
+  p {
+    margin: 0;
+  }
+  div > ul {
+    display: flex;
+  }
+</style>

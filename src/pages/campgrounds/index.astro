@@ -1,0 +1,114 @@
+---
+import Campgrounds from '../../components/Campgrounds.astro'
+import RootLayout from '../../layouts/RootLayout.astro'
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import searchIcon from '../../assets/Search Icon.svg'
+---
+
+<RootLayout title='Campgrounds'>
+  <SiteLayout location='Home'>
+    <main>
+      <section>
+        <div>
+          <header>
+            <h1>Welcome to YelpCamp!</h1>
+            <p>
+              View our hand-picked campgrounds from all over the world, or add
+              your own.
+            </p>
+            <form action='#'>
+              <label>
+                <img src={searchIcon} alt='Search' />
+                <input
+                  type='search'
+                  placeholder='Search for camps'
+                  name='query'
+                />
+              </label>
+              <button>Search</button>
+            </form>
+            <a href='/new-campground'>Or add your own campground</a>
+          </header>
+        </div>
+        <Campgrounds />
+      </section>
+    </main>
+  </SiteLayout>
+
+  <style>
+    main {
+      margin: 0 1rem;
+    }
+    section > div {
+      background: #f9f6f1;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1.5rem;
+    }
+    a {
+      margin-top: 1rem;
+      display: inline-block;
+    }
+    a:hover {
+      color: #272727;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    label > img {
+      position: absolute;
+      left: 0.75rem;
+      top: 1.25rem;
+    }
+    input {
+      width: 100%;
+      padding: 1.25rem 1.125rem;
+      padding-left: 2rem;
+      background: #ffffff;
+      border-radius: 0.25rem;
+      outline: none;
+      border: 1px solid #dbdbdb;
+    }
+    button {
+      border-radius: 0.25rem;
+      font-weight: bold;
+      padding: 1.125rem 1.5rem;
+      display: inline-block;
+      text-decoration: none;
+      background: #000;
+      color: #f9f6f1;
+    }
+
+    button:hover {
+      background: #383838;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        max-width: 60%;
+      }
+      form {
+        flex-direction: row;
+      }
+      label {
+        width: 100%;
+      }
+    }
+    @media (min-width: 1024px) {
+      header {
+        max-width: 36%;
+      }
+    }
+  </style>
+</RootLayout>

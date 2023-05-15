@@ -1,0 +1,29 @@
+---
+import Button from '../../components/Button.astro'
+import AuthLayout from '../../layouts/AuthLayout.astro'
+---
+
+<AuthLayout title='Sign up'>
+  <form action=''>
+    <label for='username'>Username</label>
+    <input type='text' name='username' id='username' placeholder='johndoe_91' />
+    <label for='password'>Password</label>
+    <input
+      type='password'
+      name='password'
+      id='password'
+      placeholder='Choose Password'
+    />
+    <Button>Create an accout</Button>
+  </form>
+  <p>Already a user? <a href='/sign-in'>Sign in</a></p>
+</AuthLayout>
+
+<style>
+  a {
+    color: rgb(0, 174, 255);
+  }
+  a:hover {
+    color: rgb(0, 140, 255);
+  }
+</style>
